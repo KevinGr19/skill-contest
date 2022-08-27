@@ -1,0 +1,16 @@
+name: SkillContest
+version: '${project.version}'
+main: fr.kevingr19.skillcontest.Main
+api-version: 1.19
+authors: [ KevinGr19 ]
+description: Battez-vous en équipes, en accomplissant des objectifs, pour déterminer qui sont les boss de Minecraft
+website: https://github.com/KevinGr19
+
+commands:
+  skc:
+    description: Unique commande du plugin SkillContest. Tapez (/skc help) pour plus d'informations.
+    usage: /skc <help / nom_de_commande>.
+
+  gb:
+    description: Envoie un message global
+    usage: /gb <message>
