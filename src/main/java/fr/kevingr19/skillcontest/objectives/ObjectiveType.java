@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
->>>>>>> bb6c13e8b9991e60589eac36b39ae084fa7ee097
 
 /**
  * Enum of all objectives, with their constructor, flags, and points.
