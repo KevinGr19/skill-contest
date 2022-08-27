@@ -6,7 +6,6 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
->>>>>>> bb6c13e8b9991e60589eac36b39ae084fa7ee097
 
 abstract public class PlayerObjective<T> extends Objective{
 
