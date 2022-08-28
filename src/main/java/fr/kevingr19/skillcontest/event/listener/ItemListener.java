@@ -363,7 +363,7 @@ public class ItemListener implements Listener {
     // Respawn anchor charge
     @EventHandler (priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onAnchorCharge(final PlayerInteractEvent e){
-        if(e.getClickedBlock() == null || e.getClickedBlock().getType() != Material.RESPAWN_ANCHOR) return;
+        if(e.getClickedBlock() == null || e.getClickedBlock().getType() != Material.RESPAWN_ANCHOR || e.getPlayer().isSneaking()) return;
         if(e.getAction() != Action.RIGHT_CLICK_BLOCK || ItemUtil.isNull(e.getItem()) || e.getItem().getType() != Material.GLOWSTONE) return;
 
         RespawnAnchor anchor = (RespawnAnchor) e.getClickedBlock().getBlockData();
