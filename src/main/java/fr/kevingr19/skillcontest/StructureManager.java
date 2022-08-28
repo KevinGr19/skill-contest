@@ -33,6 +33,7 @@ import java.util.Set;
 
 public class StructureManager extends BukkitRunnable implements Listener {
 
+    private final Set<StructureStart> savedStructures = new HashSet<>();
     private final Map<ChunkCoords, Set<Tuple<StructurePiece, StructureStart>>> structurePieces = new HashMap<>();
     private final Set<Vec3i> nonNaturalChests = new HashSet<>();
 
@@ -49,6 +50,7 @@ public class StructureManager extends BukkitRunnable implements Listener {
         final LevelChunk levelChunk = ((CraftChunk) e.getChunk()).getHandle();
         for(StructureStart structureStart : levelChunk.getAllStarts().values())
         {
+            if(savedStructures.contains(structureStart)) continue;
 
             for(StructurePiece piece : structureStart.getPieces()){
                 final int xB = piece.getBoundingBox().minX() >> 4;
@@ -63,6 +65,8 @@ public class StructureManager extends BukkitRunnable implements Listener {
                     structurePieces.get(coords).add(new Tuple<>(piece, structureStart));
                 }
             }
+
+            savedStructures.add(structureStart);
         }
     }
 
