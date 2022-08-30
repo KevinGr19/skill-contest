@@ -28,7 +28,7 @@ public class MainCommand implements TabExecutor {
 
     static{
         tabTreeRoot = new PredicateMapTabNode("root");
-        tabTreeRoot.addEmptyNext("help", "init", "settings", "pos", "livres");
+        tabTreeRoot.addEmptyNext("help", "init", "settings", "pos", "livres", "image");
 
         // "teams" node
         ListTabNode teamListNode = new ListTabNode("teamList", null);
@@ -52,7 +52,7 @@ public class MainCommand implements TabExecutor {
 
         // Set sub-commands predicates
         tabTreeRoot.setPredicate(player -> player.isOp() && Game.inst().isState(Game.State.NONE), "init");
-        tabTreeRoot.setPredicate(player -> Game.inst().isHost(player) && !Game.inst().hasStarted(), "settings", "teams", "set_host");
+        tabTreeRoot.setPredicate(player -> Game.inst().isHost(player) && !Game.inst().hasStarted(), "settings", "teams", "set_host", "image");
         tabTreeRoot.setPredicate(player -> Game.inst().hasStarted() && Game.inst().isPlaying(player, true), "pos");
         tabTreeRoot.setPredicate(player -> Game.inst().hasStarted(), "objectifs", "livres");
 
@@ -66,6 +66,7 @@ public class MainCommand implements TabExecutor {
         commands.put("objectifs", new OpenObjectivesCommand());
         commands.put("pos", new SendCoordinatesCommand());
         commands.put("livres", new OpenBooksCommand());
+        commands.put("image", new ChangeImageCommand());
     }
 
     private TabNode currentTabNode;
