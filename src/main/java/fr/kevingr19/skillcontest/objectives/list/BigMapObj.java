@@ -24,7 +24,7 @@ import java.net.URL;
 public class BigMapObj extends Objective {
 
     private static BufferedImage image = null;
-    public static void loadImage(String url){
+    public static boolean loadImage(String url){
         try{
             image = ImageIO.read(new URL(url));
             image = MapPalette.resizeImage(image);
